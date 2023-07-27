@@ -36,13 +36,13 @@ public class PlayerMovement :MonoBehaviour {
         smoothInputMagnitude = Mathf.SmoothDamp(smoothInputMagnitude, inputMagnitude, ref smoothMoveVelocity, smoothMoveTime);
 
         // Movement
-        /*transform.Translate(transform.forward * speed * Time.deltaTime * smoothInputMagnitude, Space.World);*/
+        //transform.Translate(transform.forward * speed * Time.deltaTime * smoothInputMagnitude, Space.World);
         velocity = transform.forward * speed * smoothInputMagnitude;
 
         //Rotation
         float playerAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg;
         angle = Mathf.LerpAngle(angle, playerAngle, Time.deltaTime * turnSpeed * inputMagnitude);
-        /*transform.eulerAngles = Vector3.up * angle;*/
+        //transform.eulerAngles = Vector3.up * angle;
     }
     void FixedUpdate () {
         rigidbody.MoveRotation(Quaternion.Euler(Vector3.up * angle));
